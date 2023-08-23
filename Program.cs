@@ -8,8 +8,8 @@ IWebHostEnvironment environment = builder.Environment;
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<BookContext>(opt => opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDbContext<TodoContext>(opt => opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<BookContext>(opt => opt.UseNpgsql(configuration.GetValue<string>("DatabaseConnectionString")));
+builder.Services.AddDbContext<TodoContext>(opt => opt.UseNpgsql(configuration.GetValue<string>("DatabaseConnectionString")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
